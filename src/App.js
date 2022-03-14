@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <HStack>
+      <HStack alignItems="flex-start">
         <ChakraSidebar />
         <Dashboard />
       </HStack>

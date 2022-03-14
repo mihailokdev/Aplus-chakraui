@@ -92,7 +92,7 @@ body {
   text-align: center;
   left: 18px;
   top: 0;
-  background-color: #480909;
+  background-color: #34c0ef;
 }
 .timelineLi > .timelineItem {
   box-shadow: 0 1px 1px rgb(0 0 0 / 10%);
@@ -106,14 +106,14 @@ body {
   position: relative;
 }
 .timelineLi > .timelineItem > .time {
-  color: #999;
+  color: rgb(255, 255, 255);
   float: right;
   padding: 10px;
   font-size: 12px;
 }
 .timelineLi > .timelineItem > .timelineHeader {
   margin: 0;
-  color: #555;
+  color: rgb(255, 255, 255);
   border-bottom: 1px solid #f4f4f4;
   padding: 10px;
   font-size: 16px;
@@ -134,4 +134,77 @@ body {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   padding: 10px;
+}
+.boxFooter {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top: 1px solid #f4f4f4;
+  padding: 10px;
+  background-color: #fff;
+}
+.button {
+  float: right !important;
+  border-radius: 3px;
+  box-shadow: none;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.43;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+.boxFooter2 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top: 1px solid #f4f4f4;
+  background-color: #fff;
+}
+.link {
+  border-radius: 0;
+  border-top: 0;
+  border-left: 3px solid transparent;
+  color: #444;
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  font-size: 13px;
+}
+.clipboard {
+  margin-right: 5px;
+  display: inline-block;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1;
+}
+.boxHeader .boxTitle {
+  display: inline-block;
+  font-size: 18px;
+  margin: 0;
+  line-height: 1;
+}
+.noBorder {
+  border: 0 !important;
+}
+.itemHover:hover {
+  background-color: #ebebe0;
+}
+.birthdayCake {
+  background-color: #92fcb3;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+  display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
 }

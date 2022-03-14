@@ -12,6 +12,13 @@ import {
   OrderedList,
   UnorderedList,
   Divider,
+  Button,
+  Link,
+  Tabs,
+  TabList,
+  TabPanels,
+  Tab,
+  TabPanel,
 } from "@chakra-ui/react";
 import {
   FiUserPlus,
@@ -21,12 +28,13 @@ import {
   FiMail,
 } from "react-icons/fi";
 import { GrFormClock } from "react-icons/gr";
+import { FaBirthdayCake } from "react-icons/fa";
 import "../App.css";
 
 export default function Dashboard() {
   return (
     <>
-      <Box>
+      <Box paddingTop={5}>
         <Container maxWidth="container.xl">
           <Grid templateColumns="repeat(4, 1fr)" gap={6}>
             <Box position="relative">
@@ -95,32 +103,380 @@ export default function Dashboard() {
             </Box>
           </Grid>
           <Grid templateColumns="repeat(4, 1fr)" gap={6} pt={5}>
-            <Box bg="white" borderRadius="md" justifyItems="center">
+            <Box
+              bg="white"
+              borderRadius="md"
+              justifyItems="center"
+              borderTopColor="turquoise"
+              borderTop="3px solid #34c0ef"
+              borderTopRadius="3px"
+            >
               <Box>
                 <HStack>
                   <GrFormClock size={26} />
-                  <Text className="boxHeader"> Naredna 3 zakazana termina </Text>
+                  <Text className="boxHeader">Naredna 3 zakazana termina</Text>
                 </HStack>
               </Box>
               <Box className="boxBody">
                 <List spacing={3} className="timeline">
                   <ListItem className="timelineLi">
-                    <FiMail className="mail" color="#66ff33"  />
+                    <FiMail className="mail" color="white" />
                     <Box className="timelineItem">
                       <Text as="span" className="time">
                         14:20:00
                       </Text>
-                      <Text as="h3" className="timelineHeader" color="white" borderTopLeftRadius="7px" borderTopRightRadius="7px" backgroundColor="black">
-                        Marija                                    
+                      <Text
+                        as="h3"
+                        className="timelineHeader"
+                        color="white"
+                        borderTopLeftRadius="7px"
+                        borderTopRightRadius="7px"
+                        backgroundColor="#34c0ef"
+                      >
+                        Marija
                       </Text>
                       <Box className="timelineBody">
-                        Nađa Roganović 067555335 (inst: _nadjarr_) - (0111234567)
+                        Nađa Roganović 067555335 (inst: _nadjarr_) -
+                        (0111234567)
                       </Box>
                     </Box>
                   </ListItem>
                 </List>
               </Box>
-              <Box></Box>
+              <Box className="boxFooter">
+                <Button backgroundColor="#367fa9" className="button" size="sm">
+                  Svi termini
+                </Button>
+              </Box>
+            </Box>
+            <Box>
+              <Box
+                padding="20px"
+                borderTopRightRadius="3px"
+                borderTopLeftRadius="3px"
+                backgroundColor="#00a65a"
+              >
+                <Text
+                  as="h4"
+                  fontFamily="Source Sans Pro',sans-serif"
+                  fontSize="18px"
+                  marginTop="10px"
+                  marginBottom="10px"
+                  fontWeight={500}
+                  lineHeight={1.1}
+                  marginBlockStart="1.33em"
+                  marginBlockEnd="1.33em"
+                  marginInlineStart="0px"
+                  marginInlineEnd="0px"
+                >
+                  Status kucanja na poslu - 14.03.2022
+                </Text>
+                <Text
+                  as="h5"
+                  fontFamily="sans-serif"
+                  fontSize="14px"
+                  marginTop="10px"
+                  marginBottom="10px"
+                  fontWeight={500}
+                  lineHeight={1.1}
+                  marginBlockStart="1.67em"
+                  marginBlockEnd="1.67em"
+                  marginInlineStart="0px"
+                  marginInlineEnd="0px"
+                >
+                  Nije evidentiran:
+                </Text>
+              </Box>
+              <Box padding={0} className="boxFooter2">
+                <List marginBottom={0} marginTop={0}>
+                  <ListItem
+                    className="itemHover"
+                    borderBottom="1px solid #f4f4f4"
+                    margin={0}
+                    float="none"
+                    position="relative"
+                    display="block"
+                    alignItems="center"
+                  >
+                    <a href="#" className="link">
+                      {" "}
+                      Ivana{" "}
+                      <Text
+                        as="span"
+                        bg="#dd4b39"
+                        color="#fff"
+                        float="right"
+                        display="inline-block"
+                        minWidth="10px"
+                        padding="3px 7px"
+                        fontSize="12px"
+                        fontWeight={700}
+                        lineHeight="1"
+                        textAlign="center"
+                        whiteSpace="nowrap"
+                        verticalAlign="middle"
+                        borderRadius="10px"
+                        marginTop="5px"
+                      >
+                        Dolazak - Odlazak
+                      </Text>
+                    </a>
+                  </ListItem>
+                  <ListItem
+                    className="itemHover"
+                    borderBottom="1px solid #f4f4f4"
+                    margin={0}
+                    float="none"
+                    position="relative"
+                    display="block"
+                    alignItems="center"
+                  >
+                    <a href="#" className="link">
+                      {" "}
+                      Marija{" "}
+                      <Text
+                        as="span"
+                        bg="#dd4b39"
+                        color="#fff"
+                        float="right"
+                        display="inline-block"
+                        minWidth="10px"
+                        padding="3px 7px"
+                        fontSize="12px"
+                        fontWeight={700}
+                        lineHeight="1"
+                        textAlign="center"
+                        whiteSpace="nowrap"
+                        verticalAlign="middle"
+                        borderRadius="10px"
+                        marginTop="5px"
+                      >
+                        Dolazak - Odlazak
+                      </Text>
+                    </a>
+                  </ListItem>
+                  <ListItem
+                    className="itemHover"
+                    borderBottom="1px solid #f4f4f4"
+                    margin={0}
+                    float="none"
+                    position="relative"
+                    display="block"
+                    alignItems="center"
+                  >
+                    <a href="#" className="link">
+                      {" "}
+                      Jovana{" "}
+                      <Text
+                        as="span"
+                        bg="#dd4b39"
+                        color="#fff"
+                        float="right"
+                        display="inline-block"
+                        minWidth="10px"
+                        padding="3px 7px"
+                        fontSize="12px"
+                        fontWeight={700}
+                        lineHeight="1"
+                        textAlign="center"
+                        whiteSpace="nowrap"
+                        verticalAlign="middle"
+                        borderRadius="10px"
+                        marginTop="5px"
+                      >
+                        Dolazak - Odlazak
+                      </Text>
+                    </a>
+                  </ListItem>
+                  <ListItem
+                    className="itemHover"
+                    borderBottom="1px solid #f4f4f4"
+                    margin={0}
+                    float="none"
+                    position="relative"
+                    display="block"
+                    alignItems="center"
+                  >
+                    <a href="#" className="link">
+                      {" "}
+                      Seka{" "}
+                      <Text
+                        as="span"
+                        bg="#dd4b39"
+                        color="#fff"
+                        float="right"
+                        display="inline-block"
+                        minWidth="10px"
+                        padding="3px 7px"
+                        fontSize="12px"
+                        fontWeight={700}
+                        lineHeight="1"
+                        textAlign="center"
+                        whiteSpace="nowrap"
+                        verticalAlign="middle"
+                        borderRadius="10px"
+                        marginTop="5px"
+                      >
+                        Dolazak - Odlazak
+                      </Text>
+                    </a>
+                  </ListItem>
+                  <ListItem
+                    className="itemHover"
+                    borderBottom="1px solid #f4f4f4"
+                    margin={0}
+                    float="none"
+                    position="relative"
+                    display="block"
+                    alignItems="center"
+                  >
+                    <a href="#" className="link">
+                      {" "}
+                      Ljilja{" "}
+                      <Text
+                        as="span"
+                        bg="#dd4b39"
+                        color="#fff"
+                        float="right"
+                        display="inline-block"
+                        minWidth="10px"
+                        padding="3px 7px"
+                        fontSize="12px"
+                        fontWeight={700}
+                        lineHeight="1"
+                        textAlign="center"
+                        whiteSpace="nowrap"
+                        verticalAlign="middle"
+                        borderRadius="10px"
+                        marginTop="5px"
+                      >
+                        Dolazak - Odlazak
+                      </Text>
+                    </a>
+                  </ListItem>
+                  <ListItem
+                    className="itemHover"
+                    borderBottom="1px solid #f4f4f4"
+                    margin={0}
+                    float="none"
+                    position="relative"
+                    display="block"
+                    alignItems="center"
+                  >
+                    <a href="#" className="link">
+                      {" "}
+                      Nikoleta{" "}
+                      <Text
+                        as="span"
+                        bg="#dd4b39"
+                        color="#fff"
+                        float="right"
+                        display="inline-block"
+                        minWidth="10px"
+                        padding="3px 7px"
+                        fontSize="12px"
+                        fontWeight={700}
+                        lineHeight="1"
+                        textAlign="center"
+                        whiteSpace="nowrap"
+                        verticalAlign="middle"
+                        borderRadius="10px"
+                        marginTop="3px"
+                      >
+                        Dolazak - Odlazak
+                      </Text>
+                    </a>
+                  </ListItem>
+                </List>
+              </Box>
+            </Box>
+            <Box backgroundColor="white">
+              <Tabs align="center" variant="enclosed" isFitted>
+                <TabList color="#f29d2c">
+                  <Tab> Klijenata </Tab>
+                  <Tab> Zaposlenih </Tab>
+                </TabList>
+                <Text as="h2" fontSize="20px" paddingLeft={3}>
+                  Rodjendani
+                </Text>
+                <Divider />
+                <TabPanels>
+                  <TabPanel>
+                    <List>
+                      <ListItem>
+                        <a href="#">
+                          <HStack>
+                            <FaBirthdayCake
+                              color="#fff8f8"
+                              className="birthdayCake"
+                            />
+                            <Box>
+                              <Text as="h4" fontSize="14px">
+                                880 Saška Mitrović (Inst: __saskaa.07__)
+                              </Text>
+                            </Box>
+                          </HStack>
+                        </a>
+                      </ListItem>
+                    </List>
+                  </TabPanel>
+                  <TabPanel>
+                    <List>
+                      <ListItem>
+                        <a href="#">
+                          <HStack>
+                            <FaBirthdayCake
+                              color="#fff8f8"
+                              className="birthdayCake"
+                            />
+                            <Box>
+                              <Text as="h4" fontSize="14px">
+                                Marija
+                              </Text>
+                            </Box>
+                          </HStack>
+                        </a>
+                      </ListItem>
+                    </List>
+                  </TabPanel>
+                </TabPanels>
+              </Tabs>
+            </Box>
+            <Box
+              position="relative"
+              borderRadius="3px"
+              background="#ffffff"
+              borderTop="3px solid #d2d6de"
+              marginBottom="20px"
+              width="100%"
+              height="30%"
+              boxShadow="0 1px 1px rgb(0 0 0 / 10%)"
+              borderTopColor="#dd4b39"
+            >
+              <Box className="boxHeader">
+                <FiClipboard className="clipboard" />
+                <Text as="h3" className="boxTitle" paddingLeft={2}>
+                  Beleske
+                </Text>
+              </Box>
+              <Box className="boxBody" maxHeight="450px" overflowY="scroll">
+                <List margin={0} padding={0} overflow="auto">
+                  <ListItem>Nema evidentiranih beleski</ListItem>
+                </List>
+              </Box>
+              <Box className="boxFooter noBorder">
+                <Button
+                  type="button"
+                  backgroundColor="#f4f4f4"
+                  color="#444"
+                  borderColor="#ddd"
+                  borderRadius="3px"
+                  boxShadow="none"
+                  border="1px solid transparent"
+                >
+                  Dodaj belesku
+                </Button>
+              </Box>
             </Box>
           </Grid>
         </Container>
