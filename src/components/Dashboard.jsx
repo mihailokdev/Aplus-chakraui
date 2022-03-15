@@ -416,10 +416,16 @@ export default function Dashboard() {
                       <ListItem>
                         <a href="#">
                           <HStack>
+                            <Box
+                              className="circle"
+                              backgroundColor="#17e6c0"
+                              pt={1}
+                            >
                             <FaBirthdayCake
-                              color="#fff8f8"
-                              className="birthdayCake fa-sm"
+                              color="white"
+                              fontSize="30px"
                             />
+                            </Box>
                             <Box>
                               <Text as="h4" fontSize="12px">
                                 880 Saška Mitrović (Inst: __saskaa.07__)
