@@ -102,7 +102,12 @@ export default function Dashboard() {
               </Box>
             </Box>
           </Grid>
-          <Grid templateColumns="repeat(4, 1fr)" gap={6} pt={5}>
+          <Grid
+            templateColumns="repeat(4, 1fr)"
+            gap={6}
+            pt={5}
+            alignItems="flex-start"
+          >
             <Box
               bg="white"
               borderRadius="md"
@@ -144,7 +149,12 @@ export default function Dashboard() {
                 </List>
               </Box>
               <Box className="boxFooter">
-                <Button backgroundColor="#367fa9" className="button" size="sm">
+                <Button
+                  backgroundColor="#367fa9"
+                  className="button"
+                  size="sm"
+                  mb={2}
+                >
                   Svi termini
                 </Button>
               </Box>
@@ -408,10 +418,10 @@ export default function Dashboard() {
                           <HStack>
                             <FaBirthdayCake
                               color="#fff8f8"
-                              className="birthdayCake"
+                              className="birthdayCake fa-sm"
                             />
                             <Box>
-                              <Text as="h4" fontSize="14px">
+                              <Text as="h4" fontSize="12px">
                                 880 Saška Mitrović (Inst: __saskaa.07__)
                               </Text>
                             </Box>
@@ -422,16 +432,137 @@ export default function Dashboard() {
                   </TabPanel>
                   <TabPanel>
                     <List>
-                      <ListItem>
+                      <ListItem mt={3} mb={3}>
                         <a href="#">
                           <HStack>
-                            <FaBirthdayCake
-                              color="#fff8f8"
-                              className="birthdayCake"
-                            />
+                            <Box
+                              className="circle"
+                              backgroundColor="#ffd633"
+                              alignItems="center"
+                              pt={1}
+                            >
+                              <FaBirthdayCake color="white" fontSize="30px" />
+                            </Box>
                             <Box>
-                              <Text as="h4" fontSize="14px">
+                              <Text
+                                as="h4"
+                                fontSize="14px"
+                                alignSelf="flex-start"
+                              >
                                 Marija
+                              </Text>
+                              <Text as="p" fontSize="10px">
+                                Rodjendan je 12.06.1999
+                              </Text>
+                            </Box>
+                          </HStack>
+                        </a>
+                      </ListItem>
+                      <ListItem mt={3} mb={3}>
+                        <a href="#">
+                          <HStack>
+                            <Box
+                              className="circle"
+                              backgroundColor="#66ffff"
+                              alignItems="center"
+                              pt={1}
+                            >
+                              <FaBirthdayCake color="white" fontSize="30px" />
+                            </Box>
+                            <Box>
+                              <Text
+                                as="h4"
+                                fontSize="14px"
+                                alignSelf="flex-start"
+                              >
+                                Seka
+                              </Text>
+                              <Text as="p" fontSize="10px">
+                                Rodjendan je 05.07.2005
+                              </Text>
+                            </Box>
+                          </HStack>
+                        </a>
+                      </ListItem>
+                      <ListItem mt={3} mb={3}>
+                        <a href="#">
+                          <HStack>
+                            <Box className="circle" alignItems="center" pt={1} backgroundColor="#ff0000">
+                              <FaBirthdayCake color="white" fontSize="30px" />
+                            </Box>
+                            <Box>
+                              <Text
+                                as="h4"
+                                fontSize="14px"
+                                alignSelf="flex-start"
+                              >
+                                Jovana
+                              </Text>
+                              <Text as="p" fontSize="10px">
+                                Rodjendan je 07.07.2001
+                              </Text>
+                            </Box>
+                          </HStack>
+                        </a>
+                      </ListItem>
+                      <ListItem mt={3} mb={3}>
+                        <a href="#">
+                          <HStack>
+                            <Box className="circle" alignItems="center" pt={1} backgroundColor="#99cc00">
+                              <FaBirthdayCake color="white" fontSize="30px" />
+                            </Box>
+                            <Box>
+                              <Text
+                                as="h4"
+                                fontSize="14px"
+                                alignSelf="flex-start"
+                              >
+                                Ivana
+                              </Text>
+                              <Text as="p" fontSize="10px">
+                                Rodjendan je 12.08.1997
+                              </Text>
+                            </Box>
+                          </HStack>
+                        </a>
+                      </ListItem>
+                      <ListItem mt={3} mb={3}>
+                        <a href="#">
+                          <HStack>
+                            <Box className="circle" alignItems="center" pt={1} backgroundColor="#3366ff">
+                              <FaBirthdayCake color="white" fontSize="30px" />
+                            </Box>
+                            <Box>
+                              <Text
+                                as="h4"
+                                fontSize="14px"
+                                alignSelf="flex-start"
+                              >
+                                Nikoleta
+                              </Text>
+                              <Text as="p" fontSize="10px">
+                                Rodjendan je 24.08.1991
+                              </Text>
+                            </Box>
+                          </HStack>
+                        </a>
+                      </ListItem>
+                      <ListItem mt={3} mb={3}>
+                        <a href="#">
+                          <HStack>
+                            <Box className="circle" alignItems="center" pt={1} backgroundColor="#ff33cc">
+                              <FaBirthdayCake color="white" fontSize="30px" />
+                            </Box>
+                            <Box>
+                              <Text
+                                as="h4"
+                                fontSize="14px"
+                                alignSelf="flex-start"
+                              >
+                                Ljilja
+                              </Text>
+                              <Text as="p" fontSize="10px">
+                                Rodjendan je 04.09.2003
                               </Text>
                             </Box>
                           </HStack>
@@ -449,7 +580,6 @@ export default function Dashboard() {
               borderTop="3px solid #d2d6de"
               marginBottom="20px"
               width="100%"
-              height="30%"
               boxShadow="0 1px 1px rgb(0 0 0 / 10%)"
               borderTopColor="#dd4b39"
             >
@@ -469,10 +599,14 @@ export default function Dashboard() {
                   type="button"
                   backgroundColor="#f4f4f4"
                   color="#444"
-                  borderColor="#ddd"
+                  borderColor="gray.300"
                   borderRadius="3px"
                   boxShadow="none"
-                  border="1px solid transparent"
+                  border="1px solid"
+                  size="sm"
+                  float="right"
+                  mb={2}
+                  
                 >
                   Dodaj belesku
                 </Button>

@@ -197,14 +197,19 @@ body {
 }
 .birthdayCake {
   background-color: #92fcb3;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   text-align: center;
   line-height: 35px;
   display: inline-block;
-    font: normal normal normal 14px/1 FontAwesome;
+    font: normal normal normal 12px/1 FontAwesome;
     font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
+}
+.circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
 }
