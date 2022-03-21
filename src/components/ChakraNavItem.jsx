@@ -6,7 +6,7 @@ export default function NavItem({ navSize, title, icon, active }) {
         mt={30}
         flexDir="column"
         w="100%"
-        alignItems={navSize == "small" ? "center" : "flex-start"}
+        alignItems={navSize === "small" ? "center" : "flex-start"}
     >
         <Menu placement="right">
             <Link
@@ -18,7 +18,7 @@ export default function NavItem({ navSize, title, icon, active }) {
             >
                 <MenuButton w="100%">
                     <Flex>
-                        <Icon as={icon} fontSize="l" color={active ? "#82AAAD" : "black"} />
+                        <Icon as={icon} fontSize="l" color={active ? "#82AAAD" : "black "} />
                         <Text ml={3} fontSize="" display={navSize === "small" ? "none" : "flex"}> {title} </Text>
                     </Flex>
                 </MenuButton>

@@ -1,21 +1,16 @@
-import "./App.css";
-import Sidebar from "./components/Sidebar";
-import { Router } from "react-router-dom";
-import { ChakraProvider, Flex, Grid, GridItem, HStack } from "@chakra-ui/react";
-import ChakraSidebar from "./components/ChakraSidebar";
-import Nav from "./components/Navbar";
+import React from "react";
+import Zakazivanje from "./components/Zakazivanje";
 import Dashboard from "./components/Dashboard";
+import { Box, Grid } from "@chakra-ui/react";
+import Navbar from "./components/Navbar";
+import ChakraSidebar from "./components/ChakraSidebar";
+import FullCalendar from "@fullcalendar/react"; // must go before plugins
+import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 
-function App() {
-  return (
-    <div className="App">
-      <Nav />
-      <HStack alignItems="flex-start">
-        <ChakraSidebar />
-        <Dashboard />
-      </HStack>
-    </div>
-  );
+export default class DemoApp extends React.Component {
+  render() {
+    return (
+      <Zakazivanje/>
+    );
+  }
 }
-
-export default App;
