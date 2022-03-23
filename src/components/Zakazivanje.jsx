@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -26,41 +26,46 @@ import AddEventModal from "./AddEventModal";
 import ChakraModal from "./ChakraModal";
 
 function Zakazivanje() {
+  const initialRef = React.useRef()
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   function eventClickHandler(eventInfo) {
     alert(eventInfo.event);
   }
   return (
-    <Box>
-      <FullCalendar
-        plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
-        initialView="dayGridMonth"
-        dateClick={onOpen}
-        eventClick={eventClickHandler}
-        events="https://fullcalendar.io/demo-events.json?start=2022-03-22&end=2022-08-22"
-        selectable={true}
-        headerToolbar={{
-          left: "prev, next, today",
-          center: "title",
-          right: "timeGridDay,dayGridMonth,timeGridWeek,",
-        }}
-      />
+    <Box width="85%">
+      <Box bg={"white"} pt={2} pl={2} pr={2} pb={1} borderRadius={5} borderTopColor="blue" borderTop="solid 3px blue" ml={5}>
+        <FullCalendar
+          plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+          initialView="dayGridMonth"
+          dateClick={onOpen}
+          eventClick={eventClickHandler}
+          events="https://fullcalendar.io/demo-events.json?start=2022-03-22&end=2022-08-22"
+          selectable={true}
+          headerToolbar={{
+            left: "prev, next, today",
+            center: "title",
+            right: "timeGridDay,dayGridMonth,timeGridWeek,",
+          }}
+          aspectRatio="0.95"
+          height={630}
+        />
+      </Box>
       {isOpen && (
-        <Modal isOpen={isOpen} isCentered size="lg">
+        <Modal isOpen={isOpen} isCentered size="xl" initialFocusRef={initialRef}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader textAlign="center"> Novi termin </ModalHeader>
+            <ModalHeader textAlign="center" borderTop={"solid 3px blue"} borderRadius={5}> Novi termin </ModalHeader>
             <ModalCloseButton onClick={onClose} />
             <ModalBody>
               <HStack>
-                <Box mr={4} ml={4}>
+                <Box mr={4} ml={4} width={"100%"}>
                   <FormControl>
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
                       Datum tretmana:{" "}
                     </FormLabel>
-                    <Input type="date" />
+                    <Input type="date" ref={initialRef}/>
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
                       Zaposleni{" "}
@@ -79,13 +84,13 @@ function Zakazivanje() {
                     </Select>
                   </FormControl>
                 </Box>
-                <Box mr={4} ml={4}>
+                <Box mr={4} ml={4} width={"100%"}>
                   <FormControl>
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
-                      Datum tretmana:{" "}
+                      Vreme tretmana:{" "}
                     </FormLabel>
-                    <Input type="time" />
+                    <Input type="time" width={"100%"}/>
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
                       Klijent{" "}
@@ -113,7 +118,9 @@ function Zakazivanje() {
               </Box>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={onClose} bg="">
+              <Button onClick={onClose} bg={"green"} mr={1} ml={1}> Zakazi tretman </Button>
+              <Button onClick={onClose} bg={"red"} mr={1} ml={1}> Ponisti </Button>
+              <Button onClick={onClose} bg="blue" mr={1} ml={1}>
                 {" "}
                 Close{" "}
               </Button>

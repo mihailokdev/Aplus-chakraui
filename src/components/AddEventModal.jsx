@@ -54,7 +54,21 @@ export default function AddEventModal({ closeModal }) {
           justifyContent="center"
           alignItems="center"
         >
-          <Button onClick={() => closeModal(false)} width="150px" height="45px" margin="10px" border="none" backgroundColor="cornflowerblue" color="white" borderRadius="8px" fontSize="20px" cursor="pointer"> Close </Button>
+          <Button
+            onClick={() => closeModal(false)}
+            width="150px"
+            height="45px"
+            margin="10px"
+            border="none"
+            backgroundColor="cornflowerblue"
+            color="white"
+            borderRadius="8px"
+            fontSize="20px"
+            cursor="pointer"
+          >
+            {" "}
+            Close{" "}
+          </Button>
         </Box>
       </Box>
     </Box>
