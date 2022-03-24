@@ -26,20 +26,32 @@ import AddEventModal from "./AddEventModal";
 import ChakraModal from "./ChakraModal";
 
 function Zakazivanje() {
-  const initialRef = React.useRef()
+  const initialRef = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isOpen2,
+    onOpen: onOpen2,
+    onClose: onClose2,
+  } = useDisclosure();
 
-  function eventClickHandler(eventInfo) {
-    alert(eventInfo.event);
-  }
   return (
     <Box width="85%">
-      <Box bg={"white"} pt={2} pl={2} pr={2} pb={1} borderRadius={5} borderTopColor="blue" borderTop="solid 3px blue" ml={5}>
+      <Box
+        bg={"white"}
+        pt={2}
+        pl={2}
+        pr={2}
+        pb={1}
+        borderRadius={5}
+        borderTopColor="blue"
+        borderTop="solid 3px blue"
+        ml={5}
+      >
         <FullCalendar
           plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
           initialView="dayGridMonth"
           dateClick={onOpen}
-          eventClick={eventClickHandler}
+          eventClick={onOpen2}
           events="https://fullcalendar.io/demo-events.json?start=2022-03-22&end=2022-08-22"
           selectable={true}
           headerToolbar={{
@@ -52,10 +64,22 @@ function Zakazivanje() {
         />
       </Box>
       {isOpen && (
-        <Modal isOpen={isOpen} isCentered size="xl" initialFocusRef={initialRef}>
+        <Modal
+          isOpen={isOpen}
+          isCentered
+          size="xl"
+          initialFocusRef={initialRef}
+        >
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader textAlign="center" borderTop={"solid 3px blue"} borderRadius={5}> Novi termin </ModalHeader>
+            <ModalHeader
+              textAlign="center"
+              borderTop={"solid 3px blue"}
+              borderRadius={5}
+            >
+              {" "}
+              Novi termin{" "}
+            </ModalHeader>
             <ModalCloseButton onClick={onClose} />
             <ModalBody>
               <HStack>
@@ -65,7 +89,7 @@ function Zakazivanje() {
                       {" "}
                       Datum tretmana:{" "}
                     </FormLabel>
-                    <Input type="date" ref={initialRef}/>
+                    <Input type="date" ref={initialRef} />
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
                       Zaposleni{" "}
@@ -90,7 +114,7 @@ function Zakazivanje() {
                       {" "}
                       Vreme tretmana:{" "}
                     </FormLabel>
-                    <Input type="time" width={"100%"}/>
+                    <Input type="time" width={"100%"} />
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
                       Klijent{" "}
@@ -118,8 +142,14 @@ function Zakazivanje() {
               </Box>
             </ModalBody>
             <ModalFooter>
-              <Button onClick={onClose} bg={"green"} mr={1} ml={1}> Zakazi tretman </Button>
-              <Button onClick={onClose} bg={"red"} mr={1} ml={1}> Ponisti </Button>
+              <Button onClick={onClose} bg={"green"} mr={1} ml={1}>
+                {" "}
+                Zakazi tretman{" "}
+              </Button>
+              <Button onClick={onClose} bg={"red"} mr={1} ml={1}>
+                {" "}
+                Ponisti{" "}
+              </Button>
               <Button onClick={onClose} bg="blue" mr={1} ml={1}>
                 {" "}
                 Close{" "}
@@ -127,6 +157,30 @@ function Zakazivanje() {
             </ModalFooter>
           </ModalContent>
         </Modal>
+      )}
+      {isOpen2 && (
+        <Box>
+          <Modal isOpen={isOpen2} isCentered>
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader
+                textAlign="center"
+                borderTop={"solid 3px blue"}
+                borderRadius={5}
+              >
+                {" "}
+                Termin{" "}
+              </ModalHeader>
+              <ModalCloseButton onClick={onClose2} />
+              <ModalBody>
+                <Box>Termin</Box>
+              </ModalBody>
+              <ModalFooter>
+                <Button onClick={onClose2}> Close </Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
+        </Box>
       )}
     </Box>
   );
