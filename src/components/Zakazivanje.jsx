@@ -1,8 +1,11 @@
 import React, { useState, useRef } from "react";
-import FullCalendar from "@fullcalendar/react"; // must go before plugins
+import FullCalendar, { preventDefault } from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import momentPlugin from "@fullcalendar/moment";
+import Moment from "react-moment";
+import moment from "moment";
 import {
   Box,
   Modal,
@@ -22,10 +25,13 @@ import {
   Select,
   HStack,
 } from "@chakra-ui/react";
-import AddEventModal from "./AddEventModal";
-import ChakraModal from "./ChakraModal";
 
 function Zakazivanje() {
+  const izabraniDatum = React.useRef();
+  const izabranoVreme = React.useRef();
+  const eventName = React.useRef();
+  const eventStart = React.useRef();
+  const eventEnd = React.useRef();
   const initialRef = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
@@ -48,10 +54,27 @@ function Zakazivanje() {
         ml={5}
       >
         <FullCalendar
-          plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin]}
+          plugins={[
+            dayGridPlugin,
+            interactionPlugin,
+            timeGridPlugin,
+            momentPlugin,
+          ]}
+          titleFormat=""
           initialView="dayGridMonth"
-          dateClick={onOpen}
-          eventClick={onOpen2}
+          dateClick={(event) => {
+            let dateTime = moment(event.dateStr).format("yyyy-MM-DD HH:mm").split(" ");
+            izabranoVreme.current = dateTime[1];
+            izabraniDatum.current = dateTime[0];
+            console.log(dateTime)
+            onOpen();
+          }}
+          eventClick={(info) => {
+            eventName.current = info.event.title;
+            eventStart.current = moment(info.event.startStr).format("MM/DD/yyyy");
+            eventEnd.current = moment(info.event.endStr).format("MM/DD/yyyy");
+            onOpen2();
+          }}
           events="https://fullcalendar.io/demo-events.json?start=2022-03-22&end=2022-08-22"
           selectable={true}
           headerToolbar={{
@@ -61,6 +84,7 @@ function Zakazivanje() {
           }}
           aspectRatio="0.95"
           height={630}
+          timeZone="local"
         />
       </Box>
       {isOpen && (
@@ -89,7 +113,11 @@ function Zakazivanje() {
                       {" "}
                       Datum tretmana:{" "}
                     </FormLabel>
-                    <Input type="date" ref={initialRef} />
+                    <Input
+                      type={"date"}
+                      ref={initialRef}
+                      defaultValue={izabraniDatum.current}
+                    />
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
                       Zaposleni{" "}
@@ -114,7 +142,11 @@ function Zakazivanje() {
                       {" "}
                       Vreme tretmana:{" "}
                     </FormLabel>
-                    <Input type="time" width={"100%"} />
+                    <Input
+                      type="time"
+                      width={"100%"}
+                      defaultValue={izabranoVreme.current}
+                    />
                     <FormLabel mt={2} mb={2} ml={2} mr={2}>
                       {" "}
                       Klijent{" "}
@@ -159,7 +191,7 @@ function Zakazivanje() {
         </Modal>
       )}
       {isOpen2 && (
-        <Box>
+        <Box bg={"white"}>
           <Modal isOpen={isOpen2} isCentered>
             <ModalOverlay />
             <ModalContent>
@@ -168,12 +200,13 @@ function Zakazivanje() {
                 borderTop={"solid 3px blue"}
                 borderRadius={5}
               >
-                {" "}
-                Termin{" "}
+                Izabrani termin
               </ModalHeader>
               <ModalCloseButton onClick={onClose2} />
               <ModalBody>
-                <Box>Termin</Box>
+                <Box>Ime termina: {eventName.current}</Box>
+                <Box> Pocetka termina: {eventStart.current} </Box>
+                <Box> Kraj termina: {eventEnd.current} </Box>
               </ModalBody>
               <ModalFooter>
                 <Button onClick={onClose2}> Close </Button>

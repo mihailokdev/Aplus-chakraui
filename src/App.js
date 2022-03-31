@@ -8,7 +8,7 @@ import ChakraSidebar from "./components/ChakraSidebar";
 export default class DemoApp extends React.Component {
   render() {
     return (
-      <Box bg={"#ecf0f5"}>
+      <Box className="App">
         <Navbar />
         <HStack>
           <ChakraSidebar />
